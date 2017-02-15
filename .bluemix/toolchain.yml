@@ -8,13 +8,17 @@ required:
  - deploy
  - repo
 
+toolchain:
+  name: knownapp
+
+
 # Github repos
 repo:
   service_id: githubpublic
   parameters:
-    repo_name: "{{name}}"
     repo_url: "{{repository}}"
     has_issues: true
+    type: link
 
 # Pipelines
 build:
@@ -48,4 +52,4 @@ deploy:
     dev-region: "{{region}}"
     dev-organization: "{{organization}}"
     dev-space: "dev"
-    app-name: "{{repo.parameters.repo_name}}"
+    app-name: "{{name}}"
